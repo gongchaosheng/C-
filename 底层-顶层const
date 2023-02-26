@@ -1,0 +1,4 @@
+# const引用
+`
+int i = 0 
+const int &r = i 创建了
