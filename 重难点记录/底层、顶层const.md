@@ -4,7 +4,7 @@
 ```
 int i = 0;
 int j = 0;
-const int k = 2;
+const int k = 2; //注意 这是const int的初始化，如果k作为const变量已经初始化过，则不能更改
 
 i = k; //正确，const int 可以给int赋值
 k = j; //正确 int可以给const int赋值
