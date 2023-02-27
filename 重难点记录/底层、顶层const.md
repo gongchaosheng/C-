@@ -1,15 +1,29 @@
 ## const引用(常量引用)
-常量对象不能绑定在非常量引用上，比如
-```
-const int i = 0;  
-int &r = i;  //错误
-```
-不管是常量引用还是非常量引用都能绑定在常量引用上：
+**常量引用：引用的对象是常量，即对`const`的引用。**
+首先声明一点：int和const int可以互相绑定，即
 ```
 int i = 0;
-const int &r = i;//正确
+int j = 0;
+const int k = 2;
+
+i = k; //正确，const int 可以给int赋值
+k = j; //正确 int可以给const int赋值
 ```
-常量引用的含义就是无法通过本引用改变引用的对象。  
+考虑int(const int)和int&、const int&：  
++ 当引用是const类型，绑定的对象既可以是int又可以是const int
+```
+int i = 0;
+const int j = 1;
+const int &r1 = i; //正确
+const int &r2 = j; //正确
+```
++ 当引用不是const类型，绑定的对象只能是int
+```
+int i = 0;
+const int j = 1;
+int &r1 = i; //正确
+int &r2 = j; //错误
+```
 
 ## const指针
 对于指针来说，有顶层`const`和底层`const`。
